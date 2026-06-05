@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Module</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0b1220;
+    color:#fff;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+/* BACKGROUND GLOW */
+.bg-glow{
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:#6366f1;
+    filter:blur(150px);
+    opacity:0.2;
+    top:-100px;
+    left:-100px;
+}
+
+.bg-glow2{
+    position:absolute;
+    width:350px;
+    height:350px;
+    background:#38bdf8;
+    filter:blur(150px);
+    opacity:0.15;
+    bottom:-100px;
+    right:-100px;
+}
+
+/* MAIN CARD */
+.card{
+    width:900px;
+    max-width:95%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;
+    backdrop-filter:blur(15px);
+    overflow:hidden;
+    z-index:2;
+}
+
+/* LEFT INFO */
+.left{
+    padding:40px;
+    background:rgba(255,255,255,0.02);
+}
+
+.left h2{
+    color:#38bdf8;
+}
+
+.left p{
+    color:#94a3b8;
+    margin-top:10px;
+    line-height:1.6;
+}
+
+/* INFO CHIPS */
+.chips{
+    margin-top:25px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.chip{
+    padding:12px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.chip h4{
+    color:#6366f1;
+    font-size:0.9rem;
+}
+
+.chip p{
+    font-size:0.85rem;
+    color:#94a3b8;
+}
+
+/* RIGHT FORM */
+.right{
+    padding:40px;
+}
+
+.right h2{
+    margin-bottom:15px;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+input, textarea{
+    padding:12px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.08);
+    background:rgba(255,255,255,0.03);
+    color:#fff;
+    outline:none;
+}
+
+textarea{
+    min-height:110px;
+    resize:none;
+}
+
+/* BUTTON */
+button{
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#6366f1;
+    color:#fff;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#4f46e5;
+    transform:translateY(-3px);
+}
+
+/* MESSAGE */
+.msg{
+    font-size:0.85rem;
+    margin-top:8px;
+}
+
+.error{ color:#f87171; }
+.success{ color:#38bdf8; }
+
+/* RESPONSIVE */
+@media(max-width:800px){
+    .card{
+        grid-template-columns:1fr;
+    }
+
+    body{
+        padding:20px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+<header id="header"></header>
+<div class="bg-glow"></div>
+<div class="bg-glow2"></div>
+
+<div class="card">
+
+    <!-- LEFT -->
+    <div class="left">
+        <h2>Let’s Connect 👋</h2>
+        <p>
+            I’m open to internships, freelance work,
+            and collaboration opportunities. Feel free to reach out anytime.
+        </p>
+
+        <div class="chips">
+            <div class="chip">
+                <h4>Email</h4>
+                <p>yourmail@example.com</p>
+            </div>
+
+            <div class="chip">
+                <h4>Phone</h4>
+                <p>+91 12345 67890</p>
+            </div>
+
+            <div class="chip">
+                <h4>Location</h4>
+                <p>Ahmedabad, India</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+
+        <h2>Contact Me</h2>
+
+        <form id="form">
+
+            <input type="text" id="name" placeholder="Your Name">
+            <input type="email" id="email" placeholder="Your Email">
+            <textarea id="message" placeholder="Your Message"></textarea>
+
+            <button type="submit">Send Message</button>
+
+            <div id="msg" class="msg"></div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+
+document.getElementById("form").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let message = document.getElementById("message").value.trim();
+    let msg = document.getElementById("msg");
+
+    if(!name || !email || !message){
+        msg.innerHTML = "⚠️ All fields are required";
+        msg.className = "msg error";
+    } else {
+        msg.innerHTML = "✅ Message sent successfully!";
+        msg.className = "msg success";
+        this.reset();
+    }
+});
+
+
+fetch('header.html')
+.then(response => response.text())
+.then(data => {
+    document.getElementById('header').innerHTML = data;
+});
+
+</script>
+
+</body>
+</html>

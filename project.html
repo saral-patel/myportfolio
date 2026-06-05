@@ -1,0 +1,307 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0f172a;
+}
+
+.projects{
+    padding:100px 10%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.title h2{
+    color:#fff;
+    font-size:3rem;
+}
+
+.title p{
+    color:#94a3b8;
+    margin-top:10px;
+}
+
+.search-box{
+    max-width:500px;
+    margin:0 auto 30px;
+}
+
+.search-box input{
+    width:100%;
+    padding:15px;
+    border:none;
+    outline:none;
+    border-radius:50px;
+    background:#1e293b;
+    color:#fff;
+}
+
+.filters{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:40px;
+}
+
+.filter-btn{
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#1e293b;
+    color:white;
+    cursor:pointer;
+}
+
+.filter-btn.active,
+.filter-btn:hover{
+    background:#6366f1;
+}
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.project-card{
+    background:#1e293b;
+    border-radius:20px;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.project-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(99,102,241,.3);
+}
+
+.project-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.content{
+    padding:25px;
+}
+
+.content h3{
+    color:white;
+    margin-bottom:10px;
+}
+
+.content p{
+    color:#94a3b8;
+    line-height:1.7;
+    margin-bottom:15px;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.tags span{
+    background:#0f172a;
+    color:#38bdf8;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+}
+
+.buttons{
+    display:flex;
+    gap:10px;
+}
+
+.btn{
+    flex:1;
+    text-align:center;
+    text-decoration:none;
+    padding:12px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.demo{
+    background:#6366f1;
+    color:white;
+}
+
+.github{
+    border:1px solid #6366f1;
+    color:white;
+}
+</style>
+</head>
+<body>
+
+<header id="header"></header>
+
+<section class="projects">
+
+<div class="title">
+    <h2>My Projects</h2>
+    <p>Some of my recent work and development projects.</p>
+</div>
+
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search Projects...">
+</div>
+
+<div class="filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="angular">Angular</button>
+    <button class="filter-btn" data-filter="python">Python</button>
+    <button class="filter-btn" data-filter="web">Web</button>
+</div>
+
+<div class="project-grid">
+
+    <div class="project-card" data-category="angular">
+        <img src="https://picsum.photos/600/400?1">
+        <div class="content">
+            <h3>BNB Run Platform</h3>
+            <p>Angular + Django booking platform.</p>
+            <div class="tags">
+                <span>Angular</span>
+                <span>Django</span>
+            </div>
+            <div class="buttons">
+                <a href="#" class="btn demo">Demo</a>
+                <a href="#" class="btn github">GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-card" data-category="python">
+        <img src="https://picsum.photos/600/400?2">
+        <div class="content">
+            <h3>Student Management System</h3>
+            <p>Python CRUD based desktop application.</p>
+            <div class="tags">
+                <span>Python</span>
+                <span>SQLite</span>
+            </div>
+            <div class="buttons">
+                <a href="#" class="btn demo">Demo</a>
+                <a href="#" class="btn github">GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-card" data-category="web">
+        <img src="https://picsum.photos/600/400?3">
+        <div class="content">
+            <h3>Portfolio Website</h3>
+            <p>Modern responsive portfolio website.</p>
+            <div class="tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JS</span>
+            </div>
+            <div class="buttons">
+                <a href="#" class="btn demo">Demo</a>
+                <a href="#" class="btn github">GitHub</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</section>
+
+<script>
+
+// FILTER
+
+const filterBtns = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('.project-card');
+
+filterBtns.forEach(btn => {
+
+    btn.addEventListener('click', () => {
+
+        filterBtns.forEach(b =>
+            b.classList.remove('active')
+        );
+
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+
+        cards.forEach(card => {
+
+            if(
+                filter === 'all' ||
+                card.dataset.category === filter
+            ){
+                card.style.display = 'block';
+            }else{
+                card.style.display = 'none';
+            }
+
+        });
+
+    });
+
+});
+
+// SEARCH
+
+document
+.getElementById('searchInput')
+.addEventListener('keyup', function(){
+
+    const value = this.value.toLowerCase();
+
+    cards.forEach(card => {
+
+        const title = card
+        .querySelector('h3')
+        .textContent
+        .toLowerCase();
+
+        if(title.includes(value)){
+            card.style.display='block';
+        }else{
+            card.style.display='none';
+        }
+
+    });
+
+});
+
+fetch('header.html')
+.then(response => response.text())
+.then(data => {
+    document.getElementById('header').innerHTML = data;
+});
+
+</script>
+
+</body>
+</html>
+```

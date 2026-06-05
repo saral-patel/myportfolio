@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Education Module</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0b1220;
+    color:#fff;
+}
+
+/* CONTAINER */
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+/* HEADER */
+.header{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.header span{
+    color:#38bdf8;
+    font-weight:600;
+}
+
+.header h1{
+    font-size:2.7rem;
+    margin-top:10px;
+}
+
+.header p{
+    color:#94a3b8;
+    max-width:750px;
+    margin:15px auto;
+    line-height:1.7;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+/* CARD */
+.card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:25px;
+    transition:0.3s;
+    backdrop-filter:blur(12px);
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    border-color:#6366f1;
+}
+
+/* TITLE */
+.card h3{
+    color:#6366f1;
+    font-size:1.25rem;
+}
+
+.card h4{
+    color:#38bdf8;
+    margin-top:5px;
+    font-weight:500;
+}
+
+/* TAGS */
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:12px 0;
+}
+
+.tag{
+    font-size:0.75rem;
+    padding:5px 10px;
+    border-radius:20px;
+    background:rgba(56,189,248,0.1);
+    color:#38bdf8;
+}
+
+/* DESCRIPTION */
+.card p{
+    color:#94a3b8;
+    line-height:1.6;
+    margin-top:10px;
+}
+
+/* PROGRESS */
+.bar{
+    width:100%;
+    height:7px;
+    background:rgba(255,255,255,0.08);
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:15px;
+}
+
+.fill{
+    height:100%;
+    width:0;
+    background:linear-gradient(90deg,#6366f1,#38bdf8);
+    animation:load 2s forwards;
+}
+
+@keyframes load{
+    to{width:var(--w);}
+}
+
+/* BADGE */
+.badge{
+    display:inline-block;
+    padding:5px 12px;
+    border-radius:20px;
+    background:#6366f1;
+    font-size:0.75rem;
+    margin-bottom:10px;
+}
+
+/* FOOT STATS */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+    margin-top:50px;
+}
+
+.stat{
+    text-align:center;
+    padding:25px;
+    background:rgba(255,255,255,0.04);
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.stat h2{
+    font-size:2rem;
+    color:#6366f1;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .header h1{
+        font-size:2rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+    <header id="header"></header>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <span>Academic Profile</span>
+        <h1>Education Background</h1>
+        <p>
+            A clean and professional overview of academic qualifications,
+            skills foundation, and technical learning journey.
+        </p>
+    </div>
+
+    <!-- EDUCATION GRID -->
+    <div class="grid">
+
+        <!-- MASTER -->
+        <div class="card">
+            <div class="badge">Upcoming</div>
+            <h3>Master of Computer Applications (MCA)</h3>
+            <h4>University Name</h4>
+
+            <div class="tags">
+                <span class="tag">2026 - 2028</span>
+                <span class="tag">Postgraduate</span>
+                <span class="tag">AI / Cloud</span>
+            </div>
+
+            <p>
+                Advanced studies in AI systems, cloud computing,
+                software architecture and enterprise applications.
+            </p>
+
+            <div class="bar">
+                <div class="fill" style="--w:25%;"></div>
+            </div>
+        </div>
+
+        <!-- BACHELOR -->
+        <div class="card">
+            <div class="badge">Current</div>
+            <h3>Bachelor of Computer Applications</h3>
+            <h4>University Name</h4>
+
+            <div class="tags">
+                <span class="tag">2023 - 2026</span>
+                <span class="tag">Computer Science</span>
+                <span class="tag">In Progress</span>
+            </div>
+
+            <p>
+                Software development, databases, web technologies,
+                system design and programming fundamentals.
+            </p>
+
+            <div class="bar">
+                <div class="fill" style="--w:85%;"></div>
+            </div>
+        </div>
+
+        <!-- HIGHER SECONDARY -->
+        <div class="card">
+            <div class="badge">Completed</div>
+            <h3>Higher Secondary (12th)</h3>
+            <h4>Science Stream</h4>
+
+            <div class="tags">
+                <span class="tag">PCM</span>
+                <span class="tag">Foundation</span>
+            </div>
+
+            <p>
+                Strong base in mathematics, physics and computer fundamentals.
+            </p>
+
+            <div class="bar">
+                <div class="fill" style="--w:90%;"></div>
+            </div>
+        </div>
+
+        <!-- SECONDARY -->
+        <div class="card">
+            <div class="badge">Completed</div>
+            <h3>Secondary School (10th)</h3>
+            <h4>Basic Education</h4>
+
+            <div class="tags">
+                <span class="tag">Logic</span>
+                <span class="tag">Discipline</span>
+            </div>
+
+            <p>
+                Built logical thinking, discipline and academic foundation.
+            </p>
+
+            <div class="bar">
+                <div class="fill" style="--w:95%;"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- STATS -->
+    <div class="stats">
+
+        <div class="stat">
+            <h2 class="counter" data-target="8">0</h2>
+            <p>CGPA</p>
+        </div>
+
+        <div class="stat">
+            <h2 class="counter" data-target="3">0</h2>
+            <p>Certifications</p>
+        </div>
+
+        <div class="stat">
+            <h2 class="counter" data-target="15">0</h2>
+            <p>Projects</p>
+        </div>
+
+        <div class="stat">
+            <h2 class="counter" data-target="100">0</h2>
+            <p>Commitment %</p>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+const counters = document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+    const update = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const inc = target / 100;
+
+        if(count < target){
+            counter.innerText = Math.ceil(count + inc);
+            setTimeout(update, 20);
+        } else {
+            counter.innerText = target;
+        }
+    };
+    update();
+});
+
+fetch('header.html')
+.then(response => response.text())
+.then(data => {
+    document.getElementById('header').innerHTML = data;
+});
+
+</script>
+
+</body>
+</html>

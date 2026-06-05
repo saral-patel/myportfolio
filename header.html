@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0f172a;
+    overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    backdrop-filter:blur(15px);
+    background:rgba(15,23,42,0.8);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.navbar{
+    width:90%;
+    margin:auto;
+    height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:800;
+    color:white;
+    text-decoration:none;
+}
+
+.logo span{
+    color:#6366f1;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:35px;
+}
+
+.nav-links a{
+    color:#e2e8f0;
+    text-decoration:none;
+    position:relative;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#6366f1;
+}
+
+.nav-links a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0;
+    height:2px;
+    background:#6366f1;
+    transition:.3s;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+.hire-btn{
+    text-decoration:none;
+    background:#6366f1;
+    color:white;
+    padding:12px 28px;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.hire-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(99,102,241,.4);
+}
+
+.menu-btn{
+    display:none;
+    font-size:32px;
+    color:white;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:120px 10%;
+    background:linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b,
+        #312e81
+    );
+}
+
+.content{
+    max-width:650px;
+}
+
+.badge{
+    display:inline-block;
+    padding:10px 20px;
+    border-radius:30px;
+    background:rgba(255,255,255,.08);
+    color:#38bdf8;
+    margin-bottom:20px;
+}
+
+.content h1{
+    color:white;
+    font-size:70px;
+    line-height:1.2;
+}
+
+.content h1 span{
+    color:#6366f1;
+}
+
+.typing{
+    color:#a78bfa;
+    font-size:32px;
+    margin-top:15px;
+    height:50px;
+}
+
+.content p{
+    color:#cbd5e1;
+    line-height:1.8;
+    margin-top:25px;
+}
+
+.buttons{
+    margin-top:35px;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:15px 35px;
+    border-radius:50px;
+    margin-right:15px;
+    transition:.3s;
+}
+
+.primary{
+    background:#6366f1;
+    color:white;
+}
+
+.secondary{
+    border:2px solid #6366f1;
+    color:white;
+}
+
+.primary:hover,
+.secondary:hover{
+    transform:translateY(-5px);
+}
+
+.secondary:hover{
+    background:#6366f1;
+}
+
+.profile{
+    position:relative;
+}
+
+.profile img{
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid rgba(255,255,255,.1);
+    box-shadow:0 0 50px rgba(99,102,241,.5);
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-20px);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .menu-btn{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:80px;
+        left:-100%;
+        width:100%;
+        flex-direction:column;
+        background:#111827;
+        text-align:center;
+        padding:30px 0;
+        transition:.4s;
+    }
+
+    .nav-links.active{
+        left:0;
+    }
+
+    .hire-btn{
+        display:none;
+    }
+
+    .hero{
+        flex-direction:column-reverse;
+        text-align:center;
+        gap:50px;
+        padding-top:140px;
+    }
+
+    .content h1{
+        font-size:45px;
+    }
+
+    .typing{
+        font-size:24px;
+    }
+
+    .profile img{
+        width:280px;
+        height:280px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+
+        <a href="#" class="logo">
+            Saral<span>.</span>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skill.html">Skills</a></li>
+            <li><a href="project.html">Projects</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="Resume.html">Resume</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <a href="#" class="hire-btn" onclick="openHireModal()">Hire Me</a>
+
+        <div class="menu-btn" id="menuBtn" onclick="hireMe()">
+            ☰
+        </div>
+
+    </nav>
+</header>
+
+
+<script>
+
+/* Mobile Menu */
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click",()=>{
+    navLinks.classList.toggle("active");
+});
+
+/* Typing Animation */
+
+const words = [
+    "Full Stack Developer",
+    "Angular Developer",
+    "Python Developer",
+    "Django Developer",
+    "UI Designer"
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+
+function type(){
+
+    if(wordIndex >= words.length){
+        wordIndex = 0;
+    }
+
+    let currentWord = words[wordIndex];
+
+    document.getElementById("typing").textContent =
+    currentWord.substring(0,charIndex+1);
+
+    charIndex++;
+
+    if(charIndex === currentWord.length){
+
+        setTimeout(()=>{
+            erase();
+        },1500);
+
+        return;
+    }
+
+    setTimeout(type,100);
+}
+
+function erase(){
+
+    let currentWord = words[wordIndex];
+
+    document.getElementById("typing").textContent =
+    currentWord.substring(0,charIndex-1);
+
+    charIndex--;
+
+    if(charIndex === 0){
+        wordIndex++;
+        setTimeout(type,300);
+        return;
+    }
+
+    setTimeout(erase,50);
+}
+
+function hireMe(){
+
+    // OPTION 1: Email (replace with your email)
+    const email = "saralpatel25@gmail.com";
+    const subject = "Hiring Opportunity";
+    const body = "Hi, I am interested in hiring you for a project.";
+
+    window.location.href =
+        `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // OPTION 2 (UNCOMMENT if you want WhatsApp instead)
+    /*
+    let phone = "911234567890"; // with country code
+    let message = "Hi, I want to hire you for a project.";
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank");
+    */
+
+}
+type();
+
+</script>
+
+</body>
+</html>

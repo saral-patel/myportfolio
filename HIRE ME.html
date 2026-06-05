@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hire Me Button</title>
+
+<style>
+
+body{
+    background:#0b1220;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Poppins, sans-serif;
+}
+
+/* BUTTON */
+.hire-btn{
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(90deg,#6366f1,#38bdf8);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+    box-shadow:0 10px 25px rgba(99,102,241,0.3);
+}
+
+.hire-btn:hover{
+    transform:translateY(-4px) scale(1.05);
+    box-shadow:0 15px 35px rgba(99,102,241,0.5);
+}
+
+/* small text */
+p{
+    position:absolute;
+    top:20px;
+    color:#94a3b8;
+}
+
+</style>
+</head>
+
+<body>
+
+<p>Click button to contact</p>
+
+<button class="hire-btn" onclick="hireMe()">
+    🚀 Hire Me
+</button>
+
+<script>
+
+function hireMe(){
+
+    // OPTION 1: Email (replace with your email)
+    const email = "yourmail@example.com";
+    const subject = "Hiring Opportunity";
+    const body = "Hi, I am interested in hiring you for a project.";
+
+    window.location.href =
+        `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // OPTION 2 (UNCOMMENT if you want WhatsApp instead)
+    /*
+    let phone = "911234567890"; // with country code
+    let message = "Hi, I want to hire you for a project.";
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank");
+    */
+
+}
+
+</script>
+
+</body>
+</html>
