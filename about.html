@@ -1,434 +1,398 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Me - Saral Patel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-<style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
+        body {
+            background: #0f172a;
+            color: #fff;
+        }
 
-body{
-    background:#0f172a;
-    color:white;
-}
+        /* MAIN WRAPPER */
 
-/* SECTION */
+        .about {
+            min-height: 100vh;
+            padding: 60px 8%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.about{
-    min-height:100vh;
-    padding:80px 8%;
-}
+        /* CONTAINER */
 
-/* TITLE */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+        }
 
-.section-title{
-    text-align:center;
-    margin-bottom:60px;
-}
+        /* HEADER */
 
-.section-title span{
-    color:#38bdf8;
-    font-size:14px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-}
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-.section-title h1{
-    margin-top:10px;
-    font-size:3rem;
-}
+        .header span {
+            color: #38bdf8;
+            letter-spacing: 3px;
+            font-size: 13px;
+        }
 
-.section-title h1 span{
-    color:#6366f1;
-}
+        .header h1 {
+            font-size: 3rem;
+            margin-top: 10px;
+        }
 
-/* TOP BOX */
+        .header h1 span {
+            color: #6366f1;
+        }
 
-.about-box{
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.08);
-    backdrop-filter:blur(10px);
-    border-radius:25px;
-    padding:40px;
-    margin-bottom:40px;
-}
+        /* NEW DASHBOARD GRID */
 
-.about-box h2{
-    margin-bottom:20px;
-    color:#6366f1;
-}
+        .grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
 
-.about-box p{
-    color:#cbd5e1;
-    line-height:1.9;
-}
+        /* LEFT BIG PANEL */
 
-/* CARDS */
+        .panel {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 25px;
+        }
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    margin-bottom:40px;
-}
+        /* RIGHT STACK */
 
-.card{
-    background:rgba(255,255,255,.05);
-    padding:30px;
-    border-radius:20px;
-    text-align:center;
-    transition:.4s;
-}
+        .stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
 
-.card:hover{
-    transform:translateY(-10px);
-}
+        /* INTRO */
 
-.card h2{
-    color:#6366f1;
-    font-size:2rem;
-    margin-bottom:10px;
-}
+        .title-box h2 {
+            color: #6366f1;
+            margin-bottom: 10px;
+        }
 
-.card p{
-    color:#cbd5e1;
-}
+        .title-box p {
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
 
-/* MAIN GRID */
+        /* STATS GRID */
 
-.main-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
-}
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
 
-/* EDUCATION */
+        .stat {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
 
-.education{
-    background:rgba(255,255,255,.05);
-    padding:35px;
-    border-radius:25px;
-}
+        .stat h2 {
+            color: #6366f1;
+            font-size: 1.6rem;
+        }
 
-.education h2{
-    margin-bottom:25px;
-    color:#6366f1;
-}
+        .stat p {
+            color: #cbd5e1;
+            font-size: 13px;
+        }
 
-.edu-card{
-    background:#1e293b;
-    padding:20px;
-    border-radius:15px;
-}
+        /* TIMELINE */
 
-.edu-card h3{
-    margin-bottom:10px;
-}
+        .timeline {
+            margin-top: 25px;
+            border-left: 3px solid #6366f1;
+            padding-left: 20px;
+        }
 
-.edu-card p{
-    color:#cbd5e1;
-    line-height:1.7;
-}
+        .timeline-item {
+            margin-bottom: 18px;
+        }
 
-/* SKILLS */
+        .timeline-item h3 {
+            color: #60a5fa;
+        }
 
-.skills{
-    background:rgba(255,255,255,.05);
-    padding:35px;
-    border-radius:25px;
-}
+        .timeline-item p {
+            color: #cbd5e1;
+            font-size: 14px;
+        }
 
-.skills h2{
-    margin-bottom:25px;
-    color:#6366f1;
-}
+        /* SKILLS CARD */
 
-.skill{
-    margin-bottom:20px;
-}
+        .skill-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 20px;
+        }
 
-.skill-top{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:8px;
-}
+        .skill {
+            margin-bottom: 14px;
+        }
 
-.progress{
-    height:10px;
-    background:#1e293b;
-    border-radius:20px;
-    overflow:hidden;
-}
+        .skill-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
 
-.bar{
-    height:100%;
-    border-radius:20px;
-    background:linear-gradient(90deg,#6366f1,#06b6d4);
-}
+        .bar {
+            height: 8px;
+            background: #1e293b;
+            border-radius: 20px;
+            overflow: hidden;
+        }
 
-.angular{width:85%;}
-.python{width:90%;}
-.django{width:88%;}
-.javascript{width:85%;}
-.mysql{width:80%;}
+        .fill {
+            height: 100%;
+            background: linear-gradient(90deg, #6366f1, #06b6d4);
+        }
 
-/* TECHNOLOGY */
+        .angular {
+            width: 85%;
+        }
 
-.tech-section{
-    margin-top:40px;
-    background:rgba(255,255,255,.05);
-    padding:35px;
-    border-radius:25px;
-}
+        .python {
+            width: 90%;
+        }
 
-.tech-section h2{
-    color:#6366f1;
-    margin-bottom:25px;
-}
+        .django {
+            width: 88%;
+        }
 
-.tech-grid{
-    display:flex;
-    flex-wrap:wrap;
-    gap:15px;
-}
+        .js {
+            width: 80%;
+        }
 
-.tech{
-    background:#1e293b;
-    padding:12px 20px;
-    border-radius:50px;
-    transition:.3s;
-}
+        /* TECH GRID */
 
-.tech:hover{
-    background:#6366f1;
-}
+        .tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
 
-/* BUTTONS */
+        .tech span {
+            background: #1e293b;
+            padding: 8px 14px;
+            border-radius: 25px;
+            font-size: 13px;
+        }
 
-.buttons{
-    margin-top:40px;
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-}
+        /* BUTTONS */
 
-.btn{
-    text-decoration:none;
-    padding:15px 35px;
-    border-radius:50px;
-    font-weight:600;
-    transition:.4s;
-}
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
 
-.resume{
-    background:#6366f1;
-    color:white;
-}
+        .btn {
+            padding: 12px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
 
-.project{
-    background:#06b6d4;
-    color:white;
-}
+        .primary {
+            background: #6366f1;
+            color: #fff;
+        }
 
-.contact{
-    border:2px solid #6366f1;
-    color:white;
-}
+        .outline {
+            border: 1px solid #6366f1;
+            color: #fff;
+        }
 
-.btn:hover{
-    transform:translateY(-5px);
-}
+        /* RESPONSIVE */
 
-/* RESPONSIVE */
+        @media(max-width:900px) {
 
-@media(max-width:900px){
+            .grid {
+                grid-template-columns: 1fr;
+            }
 
-.main-grid{
-    grid-template-columns:1fr;
-}
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
 
-.section-title h1{
-    font-size:2.2rem;
-}
+            .header h1 {
+                font-size: 2.2rem;
+            }
 
-}
-
-</style>
+        }
+    </style>
 </head>
+
 <body>
+    <header id="header"></header>
+    <section class="about">
 
-<header id="header"></header>
+        <div class="container">
 
-<section class="about">
+            <!-- HEADER -->
+            <div class="header">
+                <span>ABOUT ME</span>
+                <h1>Modern <span>Developer Profile</span></h1>
+            </div>
 
-    <div class="section-title">
-        <span>Who Am I</span>
-        <h1>About <span>Me</span></h1>
-    </div>
+            <!-- DASHBOARD GRID -->
+            <div class="grid">
 
-    <div class="about-box">
-        <h2>Career Objective</h2>
+                <!-- LEFT BIG PANEL -->
+                <div class="panel">
 
-        <p>
-            Hello! I'm <strong>Saral Patel</strong>, a passionate and motivated
-            Full Stack Developer with strong knowledge of Angular, Python,
-            Django, JavaScript and modern web technologies.
+                    <div class="title-box">
+                        <h2>Who I Am</h2>
+                        <p>
+                            Hello! I’m Saral Patel, a passionate and dedicated Software Developer with a strong interest
+                            in building modern, responsive, and user-friendly web applications. I enjoy turning complex
+                            problems into simple, efficient, and elegant digital solutions using clean and structured
+                            code.<br><br>
 
-            I enjoy building responsive websites, developing scalable
-            applications and learning new technologies. As a Computer
-            Engineering student, I am continuously improving my skills
-            through academic and personal projects.
+                            I have a solid understanding of web development technologies, including HTML, CSS,
+                            JavaScript, and backend concepts. I am also exploring advanced topics like databases, APIs,
+                            and full-stack development to enhance my skills and become a more versatile
+                            developer.<br><br>
 
-            My goal is to start my professional journey as a Software
-            Developer and contribute to innovative and impactful projects.
-        </p>
-    </div>
+                            My journey in programming started with curiosity about how websites and applications work
+                            behind the scenes. Since then, I have been continuously learning, practicing, and building
+                            real-world projects to improve my technical and problem-solving abilities.
+                        </p>
+                    </div>
 
-    <div class="cards">
+                    
 
-        <div class="card">
-            <h2>15+</h2>
-            <p>Projects Completed</p>
-        </div>
+                    <!-- TIMELINE -->
+                    <div class="timeline">
 
-        <div class="card">
-            <h2>8+</h2>
-            <p>Technologies Learned</p>
-        </div>
+                        <div class="timeline-item">
+                            <h3>2022</h3>
+                            <p>Started Engineering Journey</p>
+                        </div>
 
-        <div class="card">
-            <h2>2026</h2>
-            <p>Graduation Year</p>
-        </div>
+                        <div class="timeline-item">
+                            <h3>2024</h3>
+                            <p>Learned Full Stack Development</p>
+                        </div>
 
-        <div class="card">
-            <h2>100%</h2>
-            <p>Learning Mindset</p>
-        </div>
+                        <div class="timeline-item">
+                            <h3>2025</h3>
+                            <p>Built Real World Projects</p>
+                        </div>
 
-    </div>
+                        <div class="timeline-item">
+                            <h3>2026</h3>
+                            <p>Career Ready Developer</p>
+                        </div>
 
-    <div class="main-grid">
+                    </div>
 
-        <div class="education">
+                </div>
 
-            <h2>Education</h2>
+                <!-- RIGHT STACK -->
+                <div class="stack">
 
-            <div class="edu-card">
-                <h3>Bachelor of Engineering</h3>
+                    <!-- SKILLS -->
+                    <div class="skill-card">
 
-                <p>
-                    Computer Engineering Student with focus on
-                    Software Development, Web Development,
-                    Database Management Systems, Programming,
-                    and Modern Technologies.
-                </p>
+                        <h3 style="margin-bottom:15px;color:#6366f1;">Skills</h3>
+
+                        <div class="skill">
+                            <div class="skill-top"><span>Angular</span><span>85%</span></div>
+                            <div class="bar">
+                                <div class="fill angular"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill">
+                            <div class="skill-top"><span>Python</span><span>90%</span></div>
+                            <div class="bar">
+                                <div class="fill python"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill">
+                            <div class="skill-top"><span>Django</span><span>88%</span></div>
+                            <div class="bar">
+                                <div class="fill django"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill">
+                            <div class="skill-top"><span>JavaScript</span><span>80%</span></div>
+                            <div class="bar">
+                                <div class="fill js"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- TECH -->
+                    <div class="panel">
+                        <h3 style="color:#6366f1;margin-bottom:15px;">Tech Stack</h3>
+
+                        <div class="tech">
+                            <span>Angular</span>
+                            <span>Python</span>
+                            <span>Django</span>
+                            <span>MySQL</span>
+                            <span>Git</span>
+                            <span>REST API</span>
+                            <span>Docker</span>
+                        </div>
+
+                        <div class="buttons">
+                            <a class="btn primary" href="#">Download CV</a>
+                            <a class="btn outline" href="#">Contact</a>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
 
-        <div class="skills">
-
-            <h2>Technical Skills</h2>
-
-            <div class="skill">
-                <div class="skill-top">
-                    <span>Angular</span>
-                    <span>85%</span>
-                </div>
-                <div class="progress">
-                    <div class="bar angular"></div>
-                </div>
-            </div>
-
-            <div class="skill">
-                <div class="skill-top">
-                    <span>Python</span>
-                    <span>90%</span>
-                </div>
-                <div class="progress">
-                    <div class="bar python"></div>
-                </div>
-            </div>
-
-            <div class="skill">
-                <div class="skill-top">
-                    <span>Django</span>
-                    <span>88%</span>
-                </div>
-                <div class="progress">
-                    <div class="bar django"></div>
-                </div>
-            </div>
-
-            <div class="skill">
-                <div class="skill-top">
-                    <span>JavaScript</span>
-                    <span>85%</span>
-                </div>
-                <div class="progress">
-                    <div class="bar javascript"></div>
-                </div>
-            </div>
-
-            <div class="skill">
-                <div class="skill-top">
-                    <span>MySQL</span>
-                    <span>80%</span>
-                </div>
-                <div class="progress">
-                    <div class="bar mysql"></div>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="tech-section">
-
-        <h2>Technologies & Tools</h2>
-
-        <div class="tech-grid">
-            <div class="tech">Angular</div>
-            <div class="tech">Python</div>
-            <div class="tech">Django</div>
-            <div class="tech">JavaScript</div>
-            <div class="tech">HTML5</div>
-            <div class="tech">CSS3</div>
-            <div class="tech">Bootstrap</div>
-            <div class="tech">Git</div>
-            <div class="tech">GitHub</div>
-            <div class="tech">MySQL</div>
-            <div class="tech">REST API</div>
-            <div class="tech">Docker</div>
-        </div>
-
-    </div>
-
-    <div class="buttons">
-        <a href="#" class="btn resume">Download Resume</a>
-        <a href="#" class="btn project">View Projects</a>
-        <a href="#" class="btn contact">Contact Me</a>
-    </div>
-
-</section>
+    </section>
 
 </body>
-<script >
-fetch('header.html')
-.then(response => response.text())
-.then(data => {
-    document.getElementById('header').innerHTML = data;
-});</script>
+<script>
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header').innerHTML = data;
+        });
+</script>
+
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resume CV</title>
+<title>Modern Resume</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -17,150 +17,90 @@
 }
 
 body{
-    background:#0b1220;
+    background: radial-gradient(circle at top,#0b1220,#050814);
+    padding:40px;
     display:flex;
     justify-content:center;
-    padding:40px 20px;
 }
 
-/* A4 PAGE */
+/* A4 FIXED SIZE */
 .resume{
-    width:820px;
-    background:#fff;
-    color:#111;
-    padding:40px;
-    border-radius:8px;
-    box-shadow:0 10px 40px rgba(0,0,0,0.4);
-}
-
-/* HEADER */
-.header{
-    text-align:center;
-    border-bottom:2px solid #eee;
-    padding-bottom:15px;
-}
-
-.header h1{
-    font-size:28px;
-}
-
-.header p{
-    font-size:13px;
-    color:#555;
-    margin-top:5px;
-}
-
-/* SECTION */
-.section{
-    margin-top:20px;
-}
-
-.section h2{
-    font-size:15px;
-    color:#4f46e5;
-    margin-bottom:10px;
-    text-transform:uppercase;
-}
-
-/* GRID */
-.grid{
+    width:210mm;
+    min-height:297mm;
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:320px 1fr;
     gap:20px;
+    background:white;
+}
+
+/* LEFT */
+.left{
+    background:#4f46e5;
+    color:white;
+    padding:25px;
+}
+
+/* RIGHT */
+.right{
+    background:white;
+    padding:25px;
 }
 
 /* TEXT */
-p{
-    font-size:13px;
-    line-height:1.6;
-    color:#333;
+h1,h2,h3,p{
+    margin-bottom:6px;
 }
 
-/* SKILLS */
-.skill-group{
-    margin-bottom:12px;
+.section{
+    margin-top:15px;
 }
 
-.skill-title{
-    font-weight:600;
-    font-size:13px;
-    margin-bottom:5px;
-    color:#222;
-}
-
-.bar{
-    height:6px;
-    background:#eee;
-    border-radius:10px;
-    overflow:hidden;
-}
-
-.fill{
-    height:100%;
-    width:0;
-    background:#4f46e5;
-    animation:load 2s forwards;
-}
-
-@keyframes load{
-    to{width:var(--w);}
-}
-
-/* PROJECTS */
-.project{
-    margin-bottom:12px;
-    padding-bottom:10px;
-    border-bottom:1px dashed #ddd;
-}
-
-.project h3{
-    font-size:14px;
-    color:#111;
-}
-
-.tag{
-    font-size:11px;
-    display:inline-block;
-    padding:3px 8px;
-    background:#eef2ff;
-    color:#4f46e5;
-    border-radius:20px;
-    margin-top:5px;
+.card{
+    padding:10px;
+    border-left:3px solid #4f46e5;
+    margin-bottom:10px;
 }
 
 /* BUTTONS */
 .actions{
-    text-align:center;
     margin-top:20px;
+    text-align:center;
 }
 
 button{
-    padding:10px 16px;
+    padding:10px 18px;
     border:none;
-    border-radius:6px;
     cursor:pointer;
     margin:5px;
+    border-radius:6px;
 }
 
 .download{
-    background:#4f46e5;
-    color:white;
+    background:#38bdf8;
 }
 
 .print{
-    background:#111;
+    background:#6366f1;
     color:white;
 }
 
-/* PRINT */
-@media print{
-    body{background:white; padding:0;}
-    .actions{display:none;}
-    .resume{box-shadow:none; width:100%;}
-}
+/* PRINT FIX (MOST IMPORTANT PART) */
+@media print {
 
-@media(max-width:850px){
-    .resume{width:100%;}
+    body{
+        background:white;
+        padding:0;
+    }
+
+    .actions{
+        display:none;
+    }
+
+    .resume{
+        width:100%;
+        min-height:100%;
+        box-shadow:none;
+    }
 }
 
 </style>
@@ -169,111 +109,77 @@ button{
 <body>
 
 <div>
-    <div id="header"></div>
+
+    <header id="header"></header>
+
+<!-- RESUME -->
 <div class="resume">
 
-    <!-- HEADER -->
-    <div class="header">
-        <h1>Your Name</h1>
-        <p>Full Stack Developer | Angular | Django | Python</p>
-        <p>yourmail@example.com | +91 12345 67890 | Ahmedabad, India</p>
+    <!-- LEFT -->
+    <div class="left">
+        <h2>SARAL PATEL</h2>
+        <p>Python Developer</p>
+        <p>Ahmedabad, India</p>
+        <p>saralpatel25@gmail.com</p>
+
+        <h3>Skills</h3>
+        <p>Angular</p>
+        <p>Django</p>
+        <p>Python</p>
+        <p>MySQL</p>
     </div>
 
-    <!-- SUMMARY -->
-    <div class="section">
-        <h2>Summary</h2>
-        <p>
-            Passionate Full Stack Developer skilled in building scalable
-            applications using Angular, Django, and Python with clean architecture.
-        </p>
-    </div>
+    <!-- RIGHT -->
+    <div class="right">
 
-    <div class="grid">
+        <div class="section">
+            <h2>Summary</h2>
+            <div class="card">
+                Full Stack Python Developer with experience in Django, APIs and web apps.
+            </div>
+        </div>
 
-        <!-- EXPERIENCE -->
         <div class="section">
             <h2>Experience</h2>
-            <p>
-                Internship in Full Stack Development.<br>
-                Worked on APIs, dashboards, authentication systems and UI development.
-            </p>
+            <div class="card">
+                Internship - Python Developer<br>
+                Worked on backend systems and APIs.
+            </div>
         </div>
 
-        <!-- EDUCATION -->
         <div class="section">
             <h2>Education</h2>
-            <p>
-                BCA (2023 - 2026)<br>
-                Higher Secondary (Science Stream)<br>
-                Secondary School Completed
-            </p>
+            <div class="card">MCA (2024-2026)</div>
+            <div class="card">BCA (2021-2024)</div>
+            <div class="card">12th Standard</div>
+            <div class="card">10th Standard</div>
         </div>
 
-    </div>
-
-    <!-- PROJECTS -->
-    <div class="section">
-        <h2>Projects</h2>
-
-        <div class="project">
-            <h3>Portfolio Website</h3>
-            <span class="tag">Angular</span>
-            <span class="tag">UI/UX</span>
-            <p>Personal portfolio with modern UI and responsive design.</p>
-        </div>
-
-        <div class="project">
-            <h3>Attendance Management System</h3>
-            <span class="tag">Django</span>
-            <span class="tag">API</span>
-            <p>System for tracking student attendance with admin dashboard.</p>
-        </div>
-
-        <div class="project">
-            <h3>Task Manager App</h3>
-            <span class="tag">Angular</span>
-            <span class="tag">REST API</span>
-            <p>Task management system with CRUD operations and authentication.</p>
-        </div>
-
-    </div>
-
-    <!-- SKILLS -->
-    <div class="section">
-        <h2>Skills</h2>
-
-        <div class="skill-group">
-            <div class="skill-title">Frontend</div>
-            <div class="bar"><div class="fill" style="--w:85%;"></div></div>
-        </div>
-
-        <div class="skill-group">
-            <div class="skill-title">Backend</div>
-            <div class="bar"><div class="fill" style="--w:80%;"></div></div>
-        </div>
-
-        <div class="skill-group">
-            <div class="skill-title">Programming</div>
-            <div class="bar"><div class="fill" style="--w:90%;"></div></div>
+        <div class="section">
+            <h2>Projects</h2>
+            <div class="card">Portfolio Website</div>
+            <div class="card">Attendance System</div>
         </div>
 
     </div>
 
 </div>
 
-<!-- BUTTONS -->
+<!-- ACTIONS -->
 <div class="actions">
-    <button class="download" onclick="alert('Attach resume.pdf here')">⬇ Download CV</button>
+    <button class="download" onclick="window.print()">⬇ Download PDF</button>
     <button class="print" onclick="window.print()">🖨 Print</button>
 </div>
 
 </div>
 
 </body>
+
 <script>
-fetch('header.html')
-.then(response => response.text())
-.then(data => {
-    document.getElementById('header').innerHTML = data;
-});</script>
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header').innerHTML = data;
+        });         
+</script>   
 </html>
